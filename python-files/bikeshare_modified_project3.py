@@ -31,8 +31,8 @@ def get_filters():
             print('OK! Let\'s take a look at the data from all three cities!')
 
     # get user input for month (all, january, february, ... , june)
-    print('From the months January to June, please choose the month you would like to take a look at, or simply reply "all" to apply no month filter :')
-    month = str(input ().lower())
+
+    month = str(input ('From the months January to June, please choose the month you would like to take a look at, or simply reply "all" to apply no month filter :').lower())
     while month not in month_option:
         print('Oops, it seems like that was not an option, let\'s try again')
         month = str(input ().lower())
@@ -43,8 +43,8 @@ def get_filters():
             print('OK! Let\'s take a look at the data from all available months!')
 
     # get user input for day of week (all, monday, tuesday, ... sunday)
-    print('Now please choose the day of week you would like to take a look at, or simply reply "all" to apply no filter :')
-    day = str(input().lower())
+    
+    day = str(input('Now please choose the day of week you would like to take a look at, or simply reply "all" to apply no filter :').lower())
     weekday_option = ['all','monday','tuesday','wednesday','thursday','friday','saturday','sunday']
     while day not in weekday_option:
         print ('Oops, it seems like that was not an option, let\'s try again')
