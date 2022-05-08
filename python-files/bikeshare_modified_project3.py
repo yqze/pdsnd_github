@@ -20,19 +20,16 @@ def get_filters():
     print('Choose a city from Chicago, New York City and Washington :')
     city = str(input ().lower())
     city_option = list(CITY_DATA.keys())
-    city_option.append('all')
     while city not in city_option:
         print('Oops, it seems like that was not an option, let\'s try again')
         city = str(input().lower())
     else :
-        if city != 'all':
-            print('OK! Let\'s take a look at the data from ' + city + '!')
-        else:
-            print('OK! Let\'s take a look at the data from all three cities!')
+        print('OK! Let\'s take a look at the data from ' + city + '!')
+
 
     # get user input for month (all, january, february, ... , june)
-    print('From the months January to June, please choose the month you would like to take a look at, or simply reply "all" to apply no month filter :')
-    month = str(input ().lower())
+
+    month = str(input ('From the months January to June, please choose the month you would like to take a look at, or simply reply "all" to apply no month filter :').lower())
     while month not in month_option:
         print('Oops, it seems like that was not an option, let\'s try again')
         month = str(input ().lower())
@@ -43,8 +40,8 @@ def get_filters():
             print('OK! Let\'s take a look at the data from all available months!')
 
     # get user input for day of week (all, monday, tuesday, ... sunday)
-    print('Now please choose the day of week you would like to take a look at, or simply reply "all" to apply no filter :')
-    day = str(input().lower())
+
+    day = str(input('Now please choose the day of week you would like to take a look at, or simply reply "all" to apply no filter :').lower())
     weekday_option = ['all','monday','tuesday','wednesday','thursday','friday','saturday','sunday']
     while day not in weekday_option:
         print ('Oops, it seems like that was not an option, let\'s try again')
@@ -201,8 +198,13 @@ def main():
         user_stats(df)
 
         restart = input('\nWould you like to restart? Enter yes or no.\n')
-        if restart.lower() != 'yes':
-            break
+        while restart.lower() != 'yes' and restart.lower() != 'no':
+                restart = input('\nWould you like to restart? Enter yes or no.\n')
+        else:
+            if restart.lower() != 'yes':
+                break
+
+
 
 
 if __name__ == "__main__":
